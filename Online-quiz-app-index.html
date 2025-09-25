@@ -1,0 +1,85 @@
+<!--
+Online Quiz Application — Enhanced Beautiful UI
+Tools: HTML + CSS + JavaScript
+Features:
+- Multiple choice questions
+- Per-question timer
+- Instant feedback (correct/incorrect)
+- Live scoring
+- Optionally load questions from Open Trivia DB API
+- Local leaderboard (localStorage)  
+- Modern gradient background, neumorphism-inspired cards, hover effects
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Quiz App</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="An interactive quiz application with timer, scoring, and optional API integration." />
+  <meta name="author" content="Your Name" />
+  <meta name="keywords" content="quiz, trivia, interactive, timer, scoring, javascript, html, css" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#ffffff" />
+  
+</head>
+<body>
+  <div class="container">
+    <main class="card">
+      <header>
+        <h1>Interactive Quiz App</h1>
+        <div>Question <span id="qIndex">1</span>/<span id="qTotal">10</span></div>
+      </header>
+
+      <section>
+        <div class="question" id="questionText">Loading question...</div>
+        <div class="answers" id="answers"></div>
+
+        <div class="meta">
+          <div class="timer">Time: <span id="timer">--</span>s</div>
+          <div class="score">Score: <span id="score">0</span></div>
+        </div>
+
+        <div class="next-row">
+          <button class="btn secondary" id="prevBtn">Previous</button>
+          <button class="btn secondary" id="skipBtn">Skip</button>
+          <button class="btn primary" id="nextBtn">Next</button>
+        </div>
+
+        <p style="margin-top:16px;color:#6b7280;font-size:14px">Feedback: <span id="feedback">Answer to see instant feedback.</span></p>
+      </section>
+
+      <footer>Built with HTML, CSS & JavaScript — Supports Open Trivia DB API</footer>
+    </main>
+
+    <aside class="card sidebar">
+      <h3>Settings</h3>
+      <label><input type="checkbox" id="useApi"> Use Open Trivia DB</label><br>
+      <label>Number of questions: <input type="number" id="numQ" value="10" min="3" max="50"></label><br>
+      <label>Timer (seconds): <input type="range" id="timePerQ" min="5" max="120" value="20"> <span id="timeVal">20</span>s</label><br>
+      <label>Difficulty:
+        <select id="difficulty">
+          <option value="any">Any</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+      <button class="btn primary" id="startBtn" style="margin-top:12px">Start Quiz</button>
+
+      <h3 style="margin-top:20px">Leaderboard</h3>
+      <div class="leaderboard" id="leaderboard"></div>
+      <div style="margin-top:8px;display:flex;gap:6px">
+        <input id="playerName" placeholder="Your name" style="flex:1;padding:8px;border-radius:8px;border:1px solid #e5e7eb">
+        <button class="btn primary" id="saveScore">Save</button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="script.js">
+      </script>
+</body>
+</html>
